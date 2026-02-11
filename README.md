@@ -48,21 +48,13 @@ Food-delivary/
 ### `frontend/.env`
 
 ```env
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxxxxxx
-VITE_API_URL=http://localhost:5000
+
 ```
 
 ### `backend/.env`
 
 ```env
-MONGO_URI=mongodb+srv://...
-RAZORPAY_KEY_ID=rzp_test_xxxxxxxxx
-RAZORPAY_KEY_SECRET=xxxxxxxxx
-RAZORPAY_WEBHOOK_SECRET=whsec_xxxxxxxxx
-CLERK_SECRET_KEY=sk_test_xxxxxxxxx
-CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxx
-ADMIN_EMAILS=sonalirpatil361@gmail.com
-PORT=5000
+
 ```
 
 Notes:
@@ -199,7 +191,4 @@ Webhook signature uses `RAZORPAY_WEBHOOK_SECRET`.
 
 ---
 
-If you want, I can also add:
-- `.env.example` files for frontend and backend
-- one-command dev startup script
-- deployment guide for Render/Vercel.
+
