@@ -6,11 +6,9 @@ import App from './App';
 import './index.css';
 import StoreContextProvider from './context/StoreContextProvider';
 
-const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
-if (!clerkPublishableKey) {
-  throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY in frontend/.env");
-}
+const clerkPublishableKey =
+  import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ||
+  "pk_test_ZXRoaWNhbC1kb2ctNDkuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
