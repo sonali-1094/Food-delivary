@@ -1,0 +1,45 @@
+.auth-shell {
+  min-height: 70vh;
+  padding: 32px 16px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(255, 183, 77, 0.25), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(255, 111, 97, 0.22), transparent 45%);
+}
+
+.auth-shell__card {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 16px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(25, 25, 25, 0.12);
+}
+
+.auth-shell__eyebrow {
+  margin: 0;
+  color: #ff6b35;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.auth-shell__card h2 {
+  margin: 8px 0 16px;
+  font-size: 24px;
+  color: #1f2937;
+}
+
+.auth-shell__link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.auth-shell__link:hover {
+  text-decoration: underline;
+}

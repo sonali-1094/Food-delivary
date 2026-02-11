@@ -1,0 +1,85 @@
+.placeorder {
+  padding: 32px 0;
+}
+
+.placeorder__grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+}
+
+.placeorder__form,
+.placeorder__summary {
+  background: #fffaf3;
+  border: 1px solid #ffd6a5;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.placeorder__form h2,
+.placeorder__summary h3 {
+  margin-bottom: 14px;
+}
+
+.placeorder__form input,
+.placeorder__form textarea {
+  width: 100%;
+  border: 1px solid #f1c27d;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.placeorder__form textarea {
+  resize: vertical;
+}
+
+.placeorder__form button {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  background: #e85d04;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.placeorder__form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.placeorder__message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.placeorder__items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.placeorder__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.placeorder__total {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #f1c27d;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .placeorder__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -21,11 +21,30 @@ const StoreContextProvider = ({ children }) => {
     });
   };
 
+  const clearCart = () => {
+    setCartItems({});
+  };
+
+  const getTotalCartAmount = () => {
+    let total = 0;
+
+    Object.entries(cartItems).forEach(([itemId, quantity]) => {
+      const item = food_list.find((food) => food._id === itemId);
+      if (item) {
+        total += item.price * quantity;
+      }
+    });
+
+    return total;
+  };
+
   const contextValue = {
     food_list,
     cartItems,
     addToCart,
     removeFromCart,
+    clearCart,
+    getTotalCartAmount,
   };
 
   return (
