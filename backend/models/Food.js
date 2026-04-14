@@ -18,6 +18,14 @@ const foodSchema = new mongoose.Schema({
   },
   description: {
     type: String
+  },
+  shopkeeperId: {
+    type: String,
+    default: ""
+  },
+  shopName: {
+    type: String,
+    default: ""
   }
 }, { timestamps: true });
 

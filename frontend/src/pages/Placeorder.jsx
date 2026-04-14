@@ -124,7 +124,7 @@ const Placeorder = () => {
         key: paymentData.key,
         amount: paymentData.amount,
         currency: paymentData.currency || "INR",
-        name: "Food Delivery",
+        name: "GharSeBite",
         description: `Order #${appOrderId.slice(-6)}`,
         order_id: paymentData.razorpayOrderId,
         prefill: {

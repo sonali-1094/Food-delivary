@@ -4,6 +4,7 @@ import { food_list } from "../assets/assets";
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
+  const [searchText, setSearchText] = useState("");
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
@@ -38,13 +39,20 @@ const StoreContextProvider = ({ children }) => {
     return total;
   };
 
+  const getTotalCartItems = () => {
+    return Object.values(cartItems).reduce((total, quantity) => total + quantity, 0);
+  };
+
   const contextValue = {
     food_list,
     cartItems,
+    searchText,
+    setSearchText,
     addToCart,
     removeFromCart,
     clearCart,
     getTotalCartAmount,
+    getTotalCartItems,
   };
 
   return (

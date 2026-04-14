@@ -247,7 +247,7 @@ const Admin = () => {
               name="category"
               value={foodForm.category}
               onChange={onFoodFieldChange}
-              placeholder="Category"
+              placeholder="Category, e.g. Tiffin Combos"
               required
             />
             <input

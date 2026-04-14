@@ -7,8 +7,8 @@ const Footer = () => {
     <div className='footer' id='footer'>
         <div className="footer-content">
             <div className="footer-content-left">
-                <img src={assets.logo} alt='' />
-                <p>DelishBite is your one-stop food delivery app that brings delicious meals from your favorite local restaurants straight to your doorstep. Whether you're craving spicy street food, healthy salads, comforting curries, or sweet desserts — we've got something for every mood.</p>
+                <h1>GharSeBite</h1>
+                <p>GharSeBite helps hostellers, PG students and people living in rooms find healthy regional Indian home-style meals without the daily mess-hunt. From poha and dhokla to rajma rice, litti chokha and idli sambar, we bring a little piece of home closer to your door.</p>
                 <div className="footer-social-icons">
                     <img src={assets.facebook_icon} alt='' />
                     <img src={assets.twitter_icon} alt='' />
@@ -22,7 +22,7 @@ const Footer = () => {
                 <ul>
                     <li>Home</li>
                     <li>About us</li>
-                    <li>Delivary</li>
+                    <li>Delivery</li>
                     <li>Privacy policy</li>
                 </ul>
             </div>
@@ -30,12 +30,12 @@ const Footer = () => {
                 <h2>GET IN TOUCH</h2>
                 <ul>
                     <li>+1 121-456-5678</li>
-                    <li>contact@tomato.com</li>
+                    <li>hello@gharsebite.com</li>
                 </ul>
             </div>
         </div>
         <hr/>
-        <p className="footer-copyright">Copyright 2025 Tomato.com - All Rights Reserved.</p>
+        <p className="footer-copyright">Copyright 2026 GharSeBite - All Rights Reserved.</p>
       
     </div>
   )

@@ -1,32 +1,52 @@
 import mongoose from "mongoose";
 import dns from "node:dns";
 
+const DNS_RETRY_SERVERS = ["8.8.8.8", "1.1.1.1"];
+const connectOptions = { serverSelectionTimeoutMS: 10000 };
+
+const isSrvDnsError = (mongoUri, error) => {
+  if (!mongoUri?.startsWith("mongodb+srv://")) return false;
+
+  const message = String(error?.message || "");
+  const code = String(error?.code || "");
+
+  return /querySrv|queryTxt|ENOTFOUND|ETIMEOUT|ECONNREFUSED|ESERVFAIL|ENODATA/i.test(
+    `${code} ${message}`
+  );
+};
+
 export const connectDB = async () => {
   const mongoUri = process.env.MONGO_URI;
-  const connectOptions = { serverSelectionTimeoutMS: 10000 };
+  const directMongoUri = process.env.MONGO_URI_DIRECT || process.env.MONGODB_DIRECT_URI;
 
   if (!mongoUri) {
     throw new Error("MONGO_URI is missing in backend/.env");
   }
 
+  if (mongoUri.startsWith("mongodb+srv://")) {
+    dns.setServers(DNS_RETRY_SERVERS);
+  }
+
   try {
     await mongoose.connect(mongoUri, connectOptions);
     console.log("DB Connected");
+    return true;
   } catch (error) {
-    const isSrvLookupError =
-      mongoUri.startsWith("mongodb+srv://") &&
-      String(error.message).includes("querySrv ECONNREFUSED");
-
-    if (isSrvLookupError) {
-      dns.setServers(["8.8.8.8", "1.1.1.1"]);
-
+    if (isSrvDnsError(mongoUri, error)) {
       try {
         await mongoose.connect(mongoUri, connectOptions);
         console.log("DB Connected");
-        return;
+        return true;
       } catch (retryError) {
+        if (directMongoUri) {
+          console.warn("MongoDB SRV lookup failed. Trying direct MongoDB URI fallback...");
+          await mongoose.connect(directMongoUri, connectOptions);
+          console.log("DB Connected with direct MongoDB URI");
+          return true;
+        }
+
         throw new Error(
-          "MongoDB SRV lookup failed after DNS retry. Use the Atlas non-SRV mongodb:// URI in MONGO_URI or check your network DNS."
+          "MongoDB SRV lookup failed after DNS retry. Add Atlas non-SRV mongodb:// URI as MONGO_URI_DIRECT in backend/.env, or replace MONGO_URI with the non-SRV URI from Atlas."
         );
       }
     }

@@ -12,7 +12,15 @@ const orderSchema = new mongoose.Schema({
       },
       name: String,
       price: Number,
-      quantity: Number
+      quantity: Number,
+      shopkeeperId: {
+        type: String,
+        default: ""
+      },
+      shopName: {
+        type: String,
+        default: ""
+      }
     }
   ],
   totalAmount: {
@@ -25,7 +33,16 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Pending" // Pending, Preparing, Delivered
+    enum: ["Pending", "Accepted", "Preparing", "Out for Delivery", "Delivered", "Cancelled"],
+    default: "Pending"
+  },
+  shopkeeperId: {
+    type: String,
+    default: ""
+  },
+  shopName: {
+    type: String,
+    default: ""
   },
   paymentStatus: {
     type: String,

@@ -3,7 +3,7 @@ import './FoodItem.css';
 import { assets } from '../assets/assets';
 import { StoreContext } from '../context/StoreContext';
 
-const FoodItem = ({ id, name, price, description, image }) => {
+const FoodItem = ({ id, name, price, description, image, state }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const itemCount = cartItems[id] || 0;
 
@@ -11,6 +11,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
     <div className="food-item">
       <div className="food-item-img-container">
         <img className="food-item-image" src={image} alt={name} />
+        <span className="food-item-badge">{state || "Healthy Indian"}</span>
         {!itemCount ? (
           <img
             className="add"
@@ -41,7 +42,10 @@ const FoodItem = ({ id, name, price, description, image }) => {
           <img src={assets.rating_starts} alt="Rating" />
         </div>
         <p className="food-item-desc">{description}</p>
-        <p className="food-item-price">${price}</p>
+        <div className="food-item-bottom">
+          <p className="food-item-price">Rs. {price}</p>
+          <span>Regional</span>
+        </div>
       </div>
     </div>
   );

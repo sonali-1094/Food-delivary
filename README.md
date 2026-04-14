@@ -1,7 +1,10 @@
-# Food Delivery App (MERN + Clerk + Razorpay)
+# GharSeBite (MERN + Clerk + Razorpay)
 
-Full-stack food delivery project with:
+Full-stack healthy Indian tiffin and home-food delivery project for hostellers, PG students, and people living away from home.
+
+Built with:
 - React + Vite frontend
+- Separate React + Vite admin/shopkeeper app
 - Node.js + Express backend
 - MongoDB database
 - Clerk authentication
@@ -11,7 +14,8 @@ Full-stack food delivery project with:
 ## Project Structure
 
 ```text
-Food-delivary/
+GharSeBite/
+  admin/
   backend/
   frontend/
 ```
@@ -27,6 +31,8 @@ Food-delivary/
 
 - Browse food items
 - Add to cart and place orders
+- Separate admin/shopkeeper dashboard
+- Shopkeepers can accept incoming orders and update delivery status
 - Razorpay checkout flow
 - Payment signature verification
 - Razorpay webhook processing (`payment.captured`, `payment.failed`)
@@ -48,13 +54,21 @@ Food-delivary/
 ### `frontend/.env`
 
 ```env
-
+VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxxxxxx
+VITE_API_URL=http://localhost:5000
 ```
 
 ### `backend/.env`
 
 ```env
-
+MONGO_URI=mongodb+srv://...
+RAZORPAY_KEY_ID=rzp_test_xxxxxxxxx
+RAZORPAY_KEY_SECRET=xxxxxxxxx
+RAZORPAY_WEBHOOK_SECRET=whsec_xxxxxxxxx
+CLERK_SECRET_KEY=sk_test_xxxxxxxxx
+CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxx
+ADMIN_EMAILS=sonalirpatil361@gmail.com
+PORT=5000
 ```
 
 Notes:
@@ -70,6 +84,9 @@ cd backend
 npm install
 
 cd ../frontend
+npm install
+
+cd ../admin
 npm install
 ```
 
@@ -88,6 +105,14 @@ npm run dev
 cd frontend
 npm run dev
 ```
+
+### Terminal 3 (Admin / Shopkeeper App)
+```bash
+cd admin
+npm run dev
+```
+
+Admin app runs on Vite port `5174` by default.
 
 Frontend runs on Vite dev URL, backend on `http://localhost:5000`.
 

@@ -5,14 +5,21 @@ const Header = () => {
   return (
     <div className='header'>
       <div className="header-content">
-        <h2>Order your favourite food here.</h2>
+        <span className="header-eyebrow">For hostellers, PGs and room-life days</span>
+        <h2>Healthy Indian meals from the state you miss.</h2>
         <p>
-          Choose from a diverse menu featuring a delectable array of dishes crafted
-          with the finest ingredients and culinary expertise. Our mission is to
-          satisfy your cravings and elevate your dining experience, one delicious
-          meal at a time.
+          Find lighter regional favourites from Maharashtra, Gujarat, Punjab,
+          Bengal, Rajasthan, Bihar, South India and the North-East.
         </p>
-        <button>View Menu</button>
+        <div className="header-actions">
+          <a href="#explore-menu">View Healthy Menu</a>
+          <span>Regional, low-oil, student-friendly</span>
+        </div>
+        <div className="header-stats" aria-label="Meal benefits">
+          <strong>48 meals</strong>
+          <strong>8 regions</strong>
+          <strong>Rs. 69+</strong>
+        </div>
       </div>
     </div>
   );

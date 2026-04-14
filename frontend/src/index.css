@@ -1,22 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --leaf: #1f6f3d;
+  --leaf-dark: #124525;
+  --leaf-soft: #e7f4dc;
+  --saffron: #f4a325;
+  --saffron-soft: #fff0cf;
+  --clay: #a84f20;
+  --ink: #1f261f;
+  --muted: #6f776e;
+  --cream: #fffaf0;
+  --card: rgba(255, 255, 255, 0.86);
+  --line: rgba(31, 111, 61, 0.16);
+  --shadow: 0 24px 70px rgba(65, 74, 37, 0.14);
+}
 
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
 body{
   min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(244, 163, 37, 0.25), transparent 32vw),
+    radial-gradient(circle at top right, rgba(31, 111, 61, 0.2), transparent 28vw),
+    linear-gradient(180deg, #fff8e8 0%, #f6f7ed 48%, #fffaf0 100%);
 }
 a{
   text-decoration: none;
   color: inherit;
 }
 .app{
-  width: 80%;
+  width: min(1180px, 88%);
   margin: auto;
+}
+
+@media (max-width: 700px) {
+  .app {
+    width: min(100% - 28px, 1180px);
+  }
 }
 @keyframes fadeIn{
   0%{

@@ -21,22 +21,32 @@ app.use("/api/order", orderRoutes);
 app.use("/api/payment", paymentRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Food Delivery Backend Running 🚀");
+  res.send("GharSeBite healthy Indian tiffin backend running");
 });
 
 const PORT = process.env.PORT || 5000;
+let isDbConnected = false;
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    app: "GharSeBite API",
+    dbConnected: isDbConnected,
+  });
+});
 
 const startServer = async () => {
   try {
-    await connectDB();
-
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-    });
+    isDbConnected = await connectDB();
   } catch (error) {
     console.error(error.message);
-    process.exit(1);
+    console.warn(
+      "Server will keep running, but database-backed APIs will fail until MongoDB connects."
+    );
   }
+
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
 };
 
 startServer();

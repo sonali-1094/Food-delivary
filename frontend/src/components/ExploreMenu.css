@@ -1,63 +1,84 @@
 .explore-menu {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
+  padding: 34px;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px rgba(65, 74, 37, 0.08);
 }
-.explore-menu-list h1{
-    color: #262626;
-    font-weight: 500;
+.explore-menu h1{
+    color: var(--leaf-dark);
+    font-family: "Epilogue", sans-serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
 }
 .explore-menu-text{
-    max-width: 60%;
-    color: #808080;
+    max-width: 720px;
+    color: var(--muted);
+    line-height: 1.7;
 }
 .explore-menu-list{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: 18px;
     text-align: center;
-    max-width: 20px 0px;
     overflow-x: scroll;
+    padding: 10px 2px 14px;
 }
 .explore-menu-list::-webkit-scrollbar{
     display: none;
 }
-.explore-menu-list-item img{
-    width: 7.5vw;
-    min-width: 80px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: 0.2s;
-}
-
 .explore-menu-list-item {
+  flex: 0 0 138px;
   margin-top: 10px;
   text-align: center;
-  width: 150px;
+  padding: 12px;
+  border-radius: 24px;
+  background: var(--cream);
+  border: 1px solid transparent;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.explore-menu-list-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--line);
+  box-shadow: 0 12px 30px rgba(65, 74, 37, 0.12);
 }
 
 .explore-menu-list-item img {
-  width: 100%;
-  border-radius: 10px;
+  width: 94px;
+  height: 94px;
+  object-fit: cover;
+  border-radius: 28px;
+  transition: 0.25s ease;
 }
 .explore-menu-list-item p{
     margin-top: 10px;
-    color: #747474;
-    font-size: max(1.4vw,16px);
+    color: var(--leaf-dark);
+    font-size: 14px;
+    font-weight: 700;
 }
 .explore-menu hr{
-    margin: 10px 0px;
+    margin: 8px 0 0;
     height: 2px;
-    background-color: #e2e2e2;
+    background: linear-gradient(90deg, var(--leaf), transparent);
     border: none;
 }
 .explore-menu-list-item .active{
-    border: 4px solid tomato;
-    padding: 2px;
+    border: 4px solid var(--saffron);
+    padding: 3px;
 }
-@media (max-width:130px){
+@media (max-width:750px){
+    .explore-menu {
+        padding: 24px;
+        border-radius: 28px;
+    }
     .explore-menu-text{
         max-width: 100%;
         font-size: 14px;

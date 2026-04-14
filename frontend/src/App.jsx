@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Placeorder from './pages/Placeorder';
-import Admin from './pages/Admin';
 import Footer from './components/Footer';
+import MoodChatbot from './components/MoodChatbot';
 import './pages/AuthShell.css';
 
 const RequireSignIn = ({ children }) => {
@@ -45,7 +45,6 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<RequireSignIn><Cart /></RequireSignIn>} />
         <Route path='/order' element={<RequireSignIn><Placeorder /></RequireSignIn>} />
-        <Route path='/admin' element={<RequireSignIn><Admin /></RequireSignIn>} />
         <Route
           path='/sign-in/*'
           element={
@@ -69,6 +68,7 @@ const App = () => {
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </div>
+    <MoodChatbot />
     <Footer />
     </>
     

@@ -1,11 +1,43 @@
 .header {
-    height: 34vw;
-    margin: 30px auto;
-    background: url('/header_img.png') no-repeat center center;
-    background-size: cover; /* changed from 'contain' to fill better */
+    min-height: 560px;
+    margin: 26px auto 34px;
+    background:
+        radial-gradient(circle at 78% 20%, rgba(244, 163, 37, 0.46), transparent 22%),
+        linear-gradient(115deg, rgba(18, 69, 37, 0.92), rgba(31, 111, 61, 0.62) 48%, rgba(168, 79, 32, 0.2)),
+        url('/header_img.png') no-repeat center center;
+    background-size: cover;
     position: relative;
     display: flex;
-    align-items: flex-end; /* to align content near the bottom */
+    align-items: flex-end;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 28px;
+    pointer-events: none;
+}
+
+.header::after {
+    content: "Low-oil Indian tiffins";
+    position: absolute;
+    right: 42px;
+    bottom: 42px;
+    max-width: 220px;
+    padding: 18px 22px;
+    color: var(--leaf-dark);
+    background: rgba(255, 250, 240, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    font-weight: 800;
+    animation: floatCard 4s ease-in-out infinite;
 }
 
 .header-content {
@@ -13,59 +45,155 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5vw;
-    max-width: 50%;
-    bottom: 10%;
+    gap: 18px;
+    max-width: 610px;
+    bottom: 70px;
     left: 6vw;
-    animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.header-eyebrow {
+    color: #fff2cd;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 9px 13px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
 }
 
 .header-content h2 {
-    font-weight: 500;
+    font-family: "Epilogue", sans-serif;
+    font-weight: 800;
     color: white;
-    font-size: max(4.5vw, 22px);
+    font-size: clamp(42px, 5.6vw, 78px);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
 }
 
 .header-content p {
-    color: white;
-    font-size: 1vw;
-    line-height: 1.5;
+    color: #fff8e8;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 560px;
 }
 
-.header-content button {
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.header-actions span {
+    color: #fff2cd;
+    font-weight: 600;
+}
+
+.header-content a {
     border: none;
-    color: #747474;
-    font-weight: 500;
-    padding: 1vw 2.3vw;
-    background-color: white;
-    font-size: max(1vw, 13px);
+    color: var(--leaf-dark);
+    font-weight: 800;
+    padding: 15px 28px;
+    background-color: var(--saffron-soft);
+    font-size: 15px;
     border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    transition: 0.3s ease;
 }
 
-.header-content button:hover {
-    background-color: #f0f0f0;
+.header-content a:hover {
+    background-color: white;
+    transform: translateY(-2px);
 }
 
-/* Optional animation keyframes */
+.header-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.header-stats strong {
+    color: white;
+    padding: 10px 13px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
 @media (max-width:1050px){
     .header-content{
-        max-width: 45%;
+        max-width: 68%;
+    }
+    .header-content p {
+        font-size: 13px;
     }
 }
 @media (max-width:750px){
+    .header {
+        min-height: 620px;
+        border-radius: 28px;
+    }
+    .header::after {
+        right: 24px;
+        bottom: 22px;
+        font-size: 13px;
+        padding: 14px 16px;
+    }
     .header-content{
-        max-width: 55%;
+        max-width: 84%;
+        left: 28px;
+        bottom: 110px;
     }
     .header-content p{
-        display: none;
+        display: block;
+        font-size: 14px;
     }
-    .header-content button{
-        padding: 2vw 4vw;
+    .header-content h2 {
+        font-size: 40px;
+    }
+    .header-content a{
+        padding: 13px 20px;
+    }
+}
+
+@media (max-width:480px){
+    .header {
+        min-height: 660px;
+    }
+    .header::before {
+        inset: 12px;
+    }
+    .header::after {
+        left: 24px;
+        right: auto;
+    }
+    .header-content {
+        left: 22px;
+        right: 22px;
+        max-width: none;
+    }
+    .header-content h2 {
+        font-size: 36px;
+    }
+    .header-actions span {
+        font-size: 13px;
     }
 }
